@@ -4,17 +4,20 @@ import {
 } from '@angular/core'
 
 @Component({
-  moduleId: module.id,
   selector: 'ngx-app',
   template: require('./app.html'),
   styles: [
-    require('./app.scss')
+    require('./app.less')
   ]
 })
 export class AppComponent implements OnInit {
 
+  disabled: boolean = false
+
   ngOnInit() {
-    console.log('start')
+    setTimeout(() => {
+      this.disabled = true
+    }, 5000)
   }
 
 }

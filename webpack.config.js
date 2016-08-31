@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 
 function webpackConfig() {
   const config = {
@@ -9,6 +10,11 @@ function webpackConfig() {
     entry: {
       lib: './server/lib.ts',
       main: './server/index.ts'
+    },
+
+    output: {
+      filename: '[name].bundle.js',
+      sourceMapFilename: '[name].map'
     },
 
     resolve: {
@@ -26,14 +32,24 @@ function webpackConfig() {
       loaders: [
         // See: https://github.com/s-panferov/awesome-typescript-loader
         { test: /\.ts$/, loader: 'awesome-typescript-loader', exclude: [/\.(spec|e2e)\.ts$/] },
-        // SCSS
+        // See: https://github.com/jtangelder/sass-loader
+        // { test: /\.scss$/, loaders: ['raw-loader', 'postcss-loader', 'sass-loader?sourceMap'] },
+        // See: https://github.com/webpack/less-loader
+        { test: /\.less$/, loaders: ['raw-loader', 'postcss-loader', 'less-loader'] },
+        // See: https://github.com/webpack/raw-loader
         { test: /\.html$/, loader: 'raw-loader', exclude: [path.resolve(__dirname, 'server/index.html')] },
       ]
     },
 
+    postcss: [
+      autoprefixer({
+        browsers: ['last 1 version', '> 10%']
+      })
+    ],
+
     plugins: [
       new HtmlWebpackPlugin({
-        template: 'src/server/index.html',
+        template: 'server/index.html',
         minify: {
           minifyCSS: true,
           collapseWhitespace: true,
@@ -48,7 +64,7 @@ function webpackConfig() {
     ],
 
     devServer: {
-      port: 6666,
+      port: 7777,
       host: 'localhost',
       historyApiFallback: true,
       noInfo: true

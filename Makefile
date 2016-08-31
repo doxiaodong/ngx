@@ -1,4 +1,7 @@
 SHELL := /bin/bash
 
+dev:
+	npm run start
+
 lint:
-  npm run lint
+	npm run lint
