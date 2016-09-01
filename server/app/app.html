@@ -1,7 +1,15 @@
 <div id="button">
-  <button x-button color="primary" size="mini" [disabled]="disabled" plain>一个按钮</button>
+  <button x-button color="primary" size="mini" [disabled]="disabled" plain="true">Button</button>
 </div>
 
 <div id="actionsheet">
-
+  <button x-button color="warn" (click)="showActionsheet()">Show Actionsheet</button>
+  <x-actionsheet
+    [show]="actionsheet.show"
+    [menus]="actionsheet.menus"
+    (OnClickMenu)="actionsheet.OnClickMenu($event)"
+    (OnCancel)="actionsheet.OnCancel()"
+    showCancel="true"
+    cancelText="取消"
+  ></x-actionsheet>
 </div>

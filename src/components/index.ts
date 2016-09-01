@@ -4,15 +4,18 @@ import {
 } from '@angular/core'
 
 import { XButtonModule } from './button'
+import { XActionsheetModule } from './actionsheet'
 
 const NGX_MODULES = [
-  XButtonModule
+  XButtonModule,
+  XActionsheetModule
 ]
 
 @NgModule({
   imports: [
     // no providers
-    XButtonModule
+    XButtonModule,
+    XActionsheetModule
 
     // with providers
   ],
