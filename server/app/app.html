@@ -15,3 +15,11 @@
     cancelText="取消"
   ></x-actionsheet>
 </div>
+
+<div id="switch">
+  <x-switch
+    title="<span style='color:red'>Red Switch</span>"
+    [(ngModel)]="switch.value"
+    (OnChange)="switch.OnChange($event)"
+  ></x-switch>
+</div>

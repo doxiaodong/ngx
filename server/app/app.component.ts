@@ -21,10 +21,17 @@ export class AppComponent implements OnInit {
       qq: 'QQ'
     },
     OnClickMenu(key: string) {
-      console.log('selected', key)
+      console.log('actionsheet selected', key)
     },
     OnCancel() {
-      console.log('cancel')
+      console.log('actionsheet cancel')
+    }
+  }
+
+  switch = {
+    value: false,
+    OnChange(v) {
+      console.log('switch change', v)
     }
   }
 

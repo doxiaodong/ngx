@@ -5,17 +5,20 @@ import {
 
 import { XButtonModule } from './button'
 import { XActionsheetModule } from './actionsheet'
+import { XSwitchModule } from './switch'
 
 const NGX_MODULES = [
   XButtonModule,
-  XActionsheetModule
+  XActionsheetModule,
+  XSwitchModule
 ]
 
 @NgModule({
   imports: [
     // no providers
     XButtonModule,
-    XActionsheetModule
+    XActionsheetModule,
+    XSwitchModule
 
     // with providers
   ],
