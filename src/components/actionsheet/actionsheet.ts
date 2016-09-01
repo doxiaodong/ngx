@@ -34,6 +34,7 @@ export class XActionsheet {
 
   @Output() OnClickMenu: EventEmitter<string> = new EventEmitter()
   @Output() OnCancel: EventEmitter<any> = new EventEmitter()
+  @Output('show') showChange: EventEmitter<boolean> = new EventEmitter()
 
   set menus(value: any) {
     this._menus = []
@@ -60,8 +61,8 @@ export class XActionsheet {
   }
 
   hide() {
-    // TODO: Fix bug that cannot open again after hide()
     this.show = false
+    this.showChange.emit(this.show)
   }
 
 }

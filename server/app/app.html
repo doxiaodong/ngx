@@ -4,8 +4,10 @@
 
 <div id="actionsheet">
   <button x-button color="warn" (click)="showActionsheet()">Show Actionsheet</button>
+  <!-- TODO: use [(show)] replace -->
   <x-actionsheet
     [show]="actionsheet.show"
+    (show)="actionsheet.show=$event"
     [menus]="actionsheet.menus"
     (OnClickMenu)="actionsheet.OnClickMenu($event)"
     (OnCancel)="actionsheet.OnCancel()"
