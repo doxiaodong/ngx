@@ -2,6 +2,7 @@ import {
   Component,
   NgModule,
   ViewEncapsulation,
+  Input,
   Output,
   forwardRef,
   EventEmitter
@@ -13,6 +14,7 @@ import {
 } from '@angular/forms'
 import { DomSanitizer } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
+import { InlineDesc } from '../inline-desc'
 
 const SWITCH_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -41,6 +43,7 @@ export class XSwitch implements ControlValueAccessor {
   private _title: string = ''
   private _innerValue: boolean = false
   labelStyle: any = {}
+  @Input() subTitle: string = ''
   @Output() OnChange: EventEmitter<boolean> = new EventEmitter()
 
   set title(value: any) {
@@ -86,7 +89,8 @@ export class XSwitch implements ControlValueAccessor {
 
 @NgModule({
   declarations: [
-    XSwitch
+    XSwitch,
+    InlineDesc
   ],
   imports: [
     FormsModule,
@@ -94,6 +98,7 @@ export class XSwitch implements ControlValueAccessor {
   ],
   exports: [
     XSwitch,
+    InlineDesc,
     FormsModule,
     CommonModule
   ]
