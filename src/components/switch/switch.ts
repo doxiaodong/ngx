@@ -11,10 +11,8 @@ import {
   NG_VALUE_ACCESSOR,
   ControlValueAccessor
 } from '@angular/forms'
-import {
-  BrowserModule,
-  DomSanitizer
-} from '@angular/platform-browser'
+import { DomSanitizer } from '@angular/platform-browser'
+import { CommonModule } from '@angular/common'
 
 const SWITCH_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -92,12 +90,12 @@ export class XSwitch implements ControlValueAccessor {
   ],
   imports: [
     FormsModule,
-    BrowserModule
+    CommonModule
   ],
   exports: [
     XSwitch,
     FormsModule,
-    BrowserModule
+    CommonModule
   ]
 })
 export class XSwitchModule { }

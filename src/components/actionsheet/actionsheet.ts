@@ -6,7 +6,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser'
+import { CommonModule } from '@angular/common'
 
 interface IActionsheetMenu {
   key: string
@@ -72,11 +72,11 @@ export class XActionsheet {
     XActionsheet
   ],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [
     XActionsheet,
-    BrowserModule
+    CommonModule
   ]
 })
 export class XActionsheetModule { }
