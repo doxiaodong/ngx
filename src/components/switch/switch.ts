@@ -13,7 +13,7 @@ import {
 } from '@angular/forms'
 import {
   BrowserModule,
-  DomSanitizationService
+  DomSanitizer
 } from '@angular/platform-browser'
 
 const SWITCH_CONTROL_VALUE_ACCESSOR: any = {
@@ -81,7 +81,7 @@ export class XSwitch implements ControlValueAccessor {
   }
 
   constructor(
-    private _sanitizer: DomSanitizationService
+    private _sanitizer: DomSanitizer
   ) { }
 
 }
