@@ -1,22 +1,18 @@
-<div class="ngx-actionsheet">
+<div class="weui_mask_transition"
+  [class.weui_fade_toggle]="options.show"
+  [ngStyle]="{ 'display': options.show ? 'block' : 'none' }"
+  (click)="hide()"></div>
 
-  <div class="weui_mask_transition"
-    [class.weui_fade_toggle]="show"
-    [ngStyle]="{ 'display': show ? 'block' : 'none' }"
-    (click)="hide()"></div>
-
-  <div class="weui_actionsheet"
-    [class.weui_actionsheet_toggle]="show">
-    <div class="weui_actionsheet_menu">
-      <div class="weui_actionsheet_cell"
-        *ngFor="let item of menus"
-        (click)="emitEvent('menu', item.key)">{{ item.value }}</div>
-    </div>
-    <div class="weui_actionsheet_action"
-      *ngIf="showCancel">
-      <div class="weui_actionsheet_cell"
-        (click)="emitEvent('cancel')">{{ cancelText }}</div>
-    </div>
+<div class="weui_actionsheet"
+  [class.weui_actionsheet_toggle]="options.show">
+  <div class="weui_actionsheet_menu">
+    <div class="weui_actionsheet_cell"
+      *ngFor="let item of options.menus"
+      (click)="emitEvent('menu', item.key)">{{ item.value }}</div>
   </div>
-
+  <div class="weui_actionsheet_action"
+    *ngIf="options.showCancel">
+    <div class="weui_actionsheet_cell"
+      (click)="emitEvent('cancel')">{{ options.cancelText }}</div>
+  </div>
 </div>

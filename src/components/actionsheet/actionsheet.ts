@@ -3,14 +3,23 @@ import {
   NgModule,
   ViewEncapsulation,
   Input,
-  Output,
-  EventEmitter
+  OnChanges,
+  SimpleChanges
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 interface IActionsheetMenu {
   key: string
   value: string
+}
+
+interface IOptions {
+  show: boolean
+  menus: IActionsheetMenu[]
+  showCancel?: boolean
+  cancelText?: string
+  onSelect?: (key: string) => void
+  onCancel?: () => void
 }
 
 @Component({
@@ -24,45 +33,51 @@ interface IActionsheetMenu {
     require('./actionsheet.less')
   ]
 })
-export class XActionsheet {
+export class XActionsheet implements OnChanges {
 
-  private _menus: IActionsheetMenu[] = []
-
-  @Input() show: boolean = false
-  @Input() showCancel: boolean = false
-  @Input() cancelText: string = 'Cancel'
-
-  @Output() OnClickMenu: EventEmitter<string> = new EventEmitter()
-  @Output() OnCancel: EventEmitter<any> = new EventEmitter()
-  @Output('show') showChange: EventEmitter<boolean> = new EventEmitter()
-
-  set menus(value: any) {
-    this._menus = []
-    // change {} => []
-    for (let key in value) {
-      this._menus.push({
-        key: key,
-        value: value[key]
-      })
-    }
+  private _options: IOptions = {
+    show: false,
+    menus: [],
+    onSelect: (key: string) => {},
+    onCancel: () => {},
+    cancelText: 'Cancel'
   }
-  get menus(): any {
-    return this._menus
-  }
+
+  @Input() options: IOptions
 
   emitEvent(event: string, key?: string) {
     if (event === 'menu') {
-      this.OnClickMenu.emit(key)
+      this._options.onSelect(key)
     }
     if (event === 'cancel') {
-      this.OnCancel.emit()
+      this._options.onCancel()
     }
     this.hide()
   }
 
   hide() {
-    this.show = false
-    this.showChange.emit(this.show)
+    this.options.show = false
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if ('options' in changes) {
+      const current = changes['options'].currentValue
+
+      // onSelect and onCancel are special
+      if (typeof current.onSelect === 'function') {
+        this._options.onSelect = current.onSelect
+      }
+      if (typeof current.onCancel === 'function') {
+        this._options.onCancel = current.onCancel
+        this.options.showCancel = true
+      }
+
+      if (typeof current.cancelText !== 'string') {
+        this.options.cancelText = this._options.cancelText
+      } else {
+        this.options.showCancel = true
+      }
+    }
   }
 
 }

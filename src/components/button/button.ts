@@ -10,7 +10,6 @@ import {
 } from '@angular/core'
 import { updateClass } from '../utils'
 
-
 interface IOptions {
   size?: 'mini' | ''
   isPlain?: boolean
