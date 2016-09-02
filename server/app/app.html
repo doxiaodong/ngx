@@ -17,9 +17,11 @@
 </div>
 
 <div id="switch">
-  <x-switch
-    title="<span style='color:red'>Red Switch</span>"
-    [(ngModel)]="switch.value"
-    (OnChange)="switch.OnChange($event)"
-  ></x-switch>
+  <x-group title="Group" color="blue">
+    <x-switch
+      title="<span style='color:red'>Red Switch</span>"
+      [(ngModel)]="switch.value"
+      (OnChange)="switch.OnChange($event)"
+    ></x-switch>
+  </x-group>
 </div>
