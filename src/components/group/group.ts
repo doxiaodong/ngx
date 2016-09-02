@@ -6,11 +6,6 @@ import {
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
-interface IOptions {
-  color?: string
-  isAccess?: boolean
-}
-
 @Component({
   selector: 'x-group',
   encapsulation: ViewEncapsulation.None,
@@ -31,7 +26,7 @@ interface IOptions {
 export class XGroup {
 
   @Input() title: string
-  @Input() options: IOptions = {
+  @Input() options: IGroupOptions = {
     isAccess: false
   }
 
@@ -50,3 +45,8 @@ export class XGroup {
   ]
 })
 export class XGroupModule { }
+
+export interface IGroupOptions {
+  color?: string
+  isAccess?: boolean
+}

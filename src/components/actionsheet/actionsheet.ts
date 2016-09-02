@@ -8,20 +8,6 @@ import {
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
-interface IActionsheetMenu {
-  key: string
-  value: string
-}
-
-interface IOptions {
-  show: boolean
-  menus: IActionsheetMenu[]
-  showCancel?: boolean
-  cancelText?: string
-  onSelect?: (key: string) => void
-  onCancel?: () => void
-}
-
 @Component({
   selector: 'x-actionsheet',
   encapsulation: ViewEncapsulation.None,
@@ -35,7 +21,7 @@ interface IOptions {
 })
 export class XActionsheet implements OnChanges {
 
-  private _options: IOptions = {
+  private _options: IActionsheetOptions = {
     show: false,
     menus: [],
     onSelect: (key: string) => {},
@@ -43,7 +29,7 @@ export class XActionsheet implements OnChanges {
     cancelText: 'Cancel'
   }
 
-  @Input() options: IOptions
+  @Input() options: IActionsheetOptions
 
   emitEvent(event: string, key?: string) {
     if (event === 'menu') {
@@ -95,3 +81,17 @@ export class XActionsheet implements OnChanges {
   ]
 })
 export class XActionsheetModule { }
+
+interface IActionsheetMenu {
+  key: string
+  value: string
+}
+
+export interface IActionsheetOptions {
+  show: boolean
+  menus: IActionsheetMenu[]
+  showCancel?: boolean
+  cancelText?: string
+  onSelect?: (key: string) => void
+  onCancel?: () => void
+}

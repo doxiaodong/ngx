@@ -3,6 +3,8 @@ import {
   OnInit
 } from '@angular/core'
 
+import { IActionsheetOptions } from '../../src/components/actionsheet/'
+
 @Component({
   selector: 'ngx-app',
   template: require('./app.html'),
@@ -29,7 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   // showCancel is true cancelText or onCancel is set
-  actionsheetOptions = {
+  actionsheetOptions: IActionsheetOptions = {
     show: false,
     menus: [{
       key: 'wechat',

@@ -10,11 +10,6 @@ import {
 } from '@angular/core'
 import { updateClass } from '../utils'
 
-interface IOptions {
-  size?: 'mini' | ''
-  isPlain?: boolean
-}
-
 @Component({
   selector: 'button[x-button]',
   encapsulation: ViewEncapsulation.None,
@@ -31,10 +26,10 @@ export class XButton implements OnInit, DoCheck {
   private _color: string = 'default'
   private _disabled: boolean
 
-  @Input() options: IOptions = {
+  @Input() options: IButtonOptions = {
     isPlain: false
   }
-  private _options: IOptions = {}
+  private _options: IButtonOptions = {}
 
   ngDoCheck() {
     const oldPlain = this._options.isPlain
@@ -96,3 +91,8 @@ export class XButton implements OnInit, DoCheck {
   ]
 })
 export class XButtonModule { }
+
+export interface IButtonOptions {
+  size?: 'mini' | ''
+  isPlain?: boolean
+}
