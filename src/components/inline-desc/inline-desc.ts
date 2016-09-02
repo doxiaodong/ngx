@@ -1,5 +1,6 @@
 import {
   Component,
+  NgModule,
   ViewEncapsulation
 } from '@angular/core'
 
@@ -21,3 +22,13 @@ import {
   ]
 })
 export class InlineDesc { }
+
+@NgModule({
+  declarations: [
+    InlineDesc
+  ],
+  exports: [
+    InlineDesc
+  ]
+})
+export class InlineDescModule { }

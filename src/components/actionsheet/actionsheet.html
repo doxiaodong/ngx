@@ -11,10 +11,10 @@
       <div class="weui_actionsheet_cell"
         *ngFor="let item of menus"
         (click)="emitEvent('menu', item.key)">{{ item.value }}</div>
-      <div class="ngx-actionsheet-gap"
-        *ngIf="showCancel"></div>
-      <div class="weui_actionsheet_cell ngx-actionsheet-cancel"
-        *ngIf="showCancel"
+    </div>
+    <div class="weui_actionsheet_action"
+      *ngIf="showCancel">
+      <div class="weui_actionsheet_cell"
         (click)="emitEvent('cancel')">{{ cancelText }}</div>
     </div>
   </div>

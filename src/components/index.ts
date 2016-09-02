@@ -7,12 +7,14 @@ import { XButtonModule } from './button'
 import { XActionsheetModule } from './actionsheet'
 import { XSwitchModule } from './switch'
 import { XGroupModule } from './group'
+import { XCellModule } from './cell'
 
 const NGX_MODULES = [
   XButtonModule,
   XActionsheetModule,
   XSwitchModule,
-  XGroupModule
+  XGroupModule,
+  XCellModule
 ]
 
 @NgModule({
@@ -21,7 +23,8 @@ const NGX_MODULES = [
     XButtonModule,
     XActionsheetModule,
     XSwitchModule,
-    XGroupModule
+    XGroupModule,
+    XCellModule
 
     // with providers
   ],

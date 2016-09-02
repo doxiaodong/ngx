@@ -5,7 +5,10 @@ import {
   Input,
   Output,
   forwardRef,
-  EventEmitter
+  EventEmitter,
+  ElementRef,
+  Renderer,
+  OnInit
 } from '@angular/core'
 import {
   FormsModule,
@@ -14,7 +17,8 @@ import {
 } from '@angular/forms'
 import { DomSanitizer } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
-import { InlineDesc } from '../inline-desc'
+import { InlineDescModule } from '../inline-desc'
+import { updateClass } from '../utils'
 
 const SWITCH_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -36,7 +40,7 @@ const SWITCH_CONTROL_VALUE_ACCESSOR: any = {
     SWITCH_CONTROL_VALUE_ACCESSOR
   ]
 })
-export class XSwitch implements ControlValueAccessor {
+export class XSwitch implements ControlValueAccessor, OnInit {
   private onTouchedCallback: () => {}
   private onChangeCallback: (_: any) => {}
 
@@ -81,26 +85,33 @@ export class XSwitch implements ControlValueAccessor {
     this.onTouchedCallback = fn
   }
 
+  ngOnInit() {
+    updateClass(this._renderer, this._elementRef, 'weui_cell', true)
+    updateClass(this._renderer, this._elementRef, 'weui_cell_switch', true)
+  }
+
   constructor(
-    private _sanitizer: DomSanitizer
+    private _sanitizer: DomSanitizer,
+    private _renderer: Renderer,
+    private _elementRef: ElementRef
   ) { }
 
 }
 
 @NgModule({
   declarations: [
-    XSwitch,
-    InlineDesc
+    XSwitch
   ],
   imports: [
     FormsModule,
-    CommonModule
+    CommonModule,
+    InlineDescModule
   ],
   exports: [
     XSwitch,
-    InlineDesc,
     FormsModule,
-    CommonModule
+    CommonModule,
+    InlineDescModule
   ]
 })
 export class XSwitchModule { }

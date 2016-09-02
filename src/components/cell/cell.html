@@ -1,0 +1,14 @@
+<div class="weui_cell_hd">
+  <ng-content select=[icon]></ng-content>
+</div>
+<div class="weui_cell_bd" [class.weui_cell_primary]="primary === 'title'">
+  <p class="ngx_cell_title">
+    {{ title }}
+    <ng-content select=[afterTitle]></ng-content>
+  </p>
+  <inline-desc>{{ subTitle }}</inline-desc>
+</div>
+<div class="weui_cell_ft"
+  [class.weui_cell_primary]="primary === 'content'">
+  <ng-content></ng-content>
+</div>

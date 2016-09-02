@@ -4,4 +4,8 @@
 
 ## x-actionsheet
 
+## x-group
+
 ## x-switch
+
+## x-cell

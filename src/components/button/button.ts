@@ -6,6 +6,7 @@ import {
   Renderer,
   ViewEncapsulation
 } from '@angular/core'
+import { updateClass } from '../utils'
 
 @Component({
   selector: 'button[x-button]',
@@ -28,7 +29,7 @@ export class XButton implements OnInit {
   private _plain: boolean
 
   ngOnInit() {
-    this._updateClasses('weui_btn', true)
+    updateClass(this._renderer, this._elementRef, 'weui_btn', true)
   }
 
   constructor(
@@ -37,9 +38,9 @@ export class XButton implements OnInit {
   ) {}
 
   set color(value: string) {
-    this._updateClasses(`weui_btn_${this._color}`, false)
+    updateClass(this._renderer, this._elementRef, `weui_btn_${this._color}`, false)
     this._color = value
-    this._updateClasses(`weui_btn_${this._color}`, true)
+    updateClass(this._renderer, this._elementRef, `weui_btn_${this._color}`, true)
   }
 
   get color() {
@@ -47,9 +48,9 @@ export class XButton implements OnInit {
   }
 
   set disabled(value: boolean) {
-    this._updateClasses(this._disabled ? 'weui_btn_disabled' : '', false)
+    updateClass(this._renderer, this._elementRef, this._disabled ? 'weui_btn_disabled' : '', false)
     this._disabled = value
-    this._updateClasses(this._disabled ? 'weui_btn_disabled' : '', true)
+    updateClass(this._renderer, this._elementRef, this._disabled ? 'weui_btn_disabled' : '', true)
   }
 
   get disabled() {
@@ -57,9 +58,9 @@ export class XButton implements OnInit {
   }
 
   set size(value: string) {
-    this._updateClasses(`weui_btn_${this._size}`, false)
+    updateClass(this._renderer, this._elementRef, `weui_btn_${this._size}`, false)
     this._size = value
-    this._updateClasses(`weui_btn_${this._size}`, true)
+    updateClass(this._renderer, this._elementRef, `weui_btn_${this._size}`, true)
   }
 
   get size() {
@@ -67,19 +68,15 @@ export class XButton implements OnInit {
   }
 
   set plain(value: boolean) {
-    this._updateClasses(this._plain ? `weui_btn_plain_${this._color}` : '', false)
+    updateClass(this._renderer, this._elementRef,
+      this._plain ? `weui_btn_plain_${this._color}` : '', false )
     this._plain = value
-    this._updateClasses(this._plain ? `weui_btn_plain_${this._color}` : '', true)
+    updateClass(this._renderer, this._elementRef,
+      this._plain ? `weui_btn_plain_${this._color}` : '', true)
   }
 
   get plain() {
     return this._plain
-  }
-
-  _updateClasses(className: string, isAdd: boolean) {
-    if (className != null && className !== '') {
-      this._renderer.setElementClass(this._elementRef.nativeElement, className, isAdd)
-    }
   }
 
 }
