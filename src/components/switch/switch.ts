@@ -3,9 +3,7 @@ import {
   NgModule,
   ViewEncapsulation,
   Input,
-  Output,
   forwardRef,
-  EventEmitter,
   ElementRef,
   Renderer,
   OnInit
@@ -48,7 +46,6 @@ export class XSwitch implements ControlValueAccessor, OnInit {
   private _innerValue: boolean = false
   labelStyle: any = {}
   @Input() subTitle: string = ''
-  @Output() OnChange: EventEmitter<boolean> = new EventEmitter()
 
   set title(value: any) {
     this.labelStyle = genLabelStyle(value)
@@ -62,7 +59,6 @@ export class XSwitch implements ControlValueAccessor, OnInit {
   set value(v: boolean) {
     if (v !== this._innerValue) {
       this._innerValue = v
-      this.OnChange.emit(v)
       this.onChangeCallback(v)
     }
   }

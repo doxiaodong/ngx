@@ -28,6 +28,16 @@ export class AppComponent implements OnInit {
     }
   }
 
+  buttonOptions = {
+    size: 'mini',
+    isPlain: true
+  }
+
+  groupOptions = {
+    color: 'blue',
+    isAccess: true
+  }
+
   switch = {
     value: false,
     OnChange(v) {
@@ -42,6 +52,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.disabled = true
+      this.buttonOptions.isPlain = false
+      this.groupOptions.color = 'orange'
     }, 5000)
   }
 

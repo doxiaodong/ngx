@@ -6,20 +6,21 @@ import {
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
+interface IOptions {
+  color?: string
+  isAccess?: boolean
+}
+
 @Component({
   selector: 'x-group',
   encapsulation: ViewEncapsulation.None,
-  inputs: [
-    'access'
-  ],
   template: `
     <div class="weui_cells_title"
       *ngIf="title"
-      [style.color]="color"
+      [style.color]="options.color"
       [innerHTML]="title"></div>
     <div class="weui_cells"
-      [class.weui_cells_access]="access"
-      [class.ngx-no-group-title]="!title">
+      [class.weui_cells_access]="options.isAccess">
       <ng-content></ng-content>
     </div>
   `,
@@ -28,17 +29,10 @@ import { CommonModule } from '@angular/common'
   ]
 })
 export class XGroup {
-  private _access: boolean = false
 
-  @Input() color: string
   @Input() title: string
-
-  set access(value: boolean) {
-    this._access = value
-  }
-
-  get access(): boolean {
-    return this._access
+  @Input() options: IOptions = {
+    isAccess: false
   }
 
 }
