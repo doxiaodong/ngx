@@ -5,7 +5,8 @@ const autoprefixer = require('autoprefixer')
 
 function webpackConfig() {
   const config = {
-    devtool: '#eval-source-map',
+    // devtool: '#eval-source-map',
+    devtool: '#source-map',
 
     entry: {
       lib: './server/lib.ts',
@@ -13,6 +14,7 @@ function webpackConfig() {
     },
 
     output: {
+      path: 'dist',
       filename: '[name].bundle.js',
       sourceMapFilename: '[name].map'
     },
@@ -65,7 +67,7 @@ function webpackConfig() {
 
     devServer: {
       port: 7777,
-      host: 'localhost',
+      host: '0.0.0.0',
       historyApiFallback: true,
       noInfo: true
     }

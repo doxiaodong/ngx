@@ -3,3 +3,4 @@
 set -ev
 
 npm run lint
+npm run build

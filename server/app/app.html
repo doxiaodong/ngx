@@ -1,9 +1,9 @@
 <div id="button">
   <button x-button color="primary" [disabled]="disabled" [options]="buttonOptions">Button</button>
+  <button x-button color="warn" (click)="showActionsheet()">Show Actionsheet</button>
 </div>
 
 <div id="actionsheet">
-  <button x-button color="warn" (click)="showActionsheet()">Show Actionsheet</button>
   <x-actionsheet [options]="actionsheetOptions"></x-actionsheet>
 </div>
 
@@ -19,7 +19,9 @@
       [(ngModel)]="switch.value"
       (ngModelChange)="switch.OnChange($event)"
     ></x-switch>
-    <x-cell title="Cell"></x-cell>
+    <x-cell title="Cell">
+      <x-badge>666</x-badge>
+    </x-cell>
   </x-group>
   <x-group [title]="'Group with options, color: ' + groupOptions.color" [options]="groupOptions">
     <x-cell title="Cell">normal</x-cell>

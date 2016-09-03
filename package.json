@@ -9,10 +9,12 @@
   "license": "MIT",
   "scripts": {
     "tslint": "tslint",
-    "lint": "npm run tslint \"src/**/*.ts\";npm run tslint \"server/**/*.ts\"",
+    "lint": "npm run tslint \"src/**/*.ts\" && npm run tslint \"server/**/*.ts\"",
     "server": "npm run server:dev",
     "server:dev": "webpack-dev-server --progress --profile --watch",
     "server:dev:hmr": "npm run server:dev -- --inline --hot",
+    "build": "npm run clean && webpack -p",
+    "clean": "rm -rf dist",
     "start": "npm run server:dev:hmr"
   },
   "dependencies": {

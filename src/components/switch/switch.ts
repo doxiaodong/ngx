@@ -114,7 +114,7 @@ export class XSwitchModule { }
 
 function genLabelStyle(title) {
   let isHTML = /<\/?[^>]*>/.test(title)
-  let width = Math.min(isHTML ? 5 : (title.length + 1), 14) + 'em'
+  let width = Math.min(isHTML ? 5 : (title.length + 1), 12) + 'em'
   return {
     width: width
   }

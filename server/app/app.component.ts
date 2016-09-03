@@ -1,12 +1,14 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ViewEncapsulation
 } from '@angular/core'
 
 import { IActionsheetOptions } from '../../src/components/actionsheet/'
 
 @Component({
   selector: 'ngx-app',
+  encapsulation: ViewEncapsulation.None,
   template: require('./app.html'),
   styles: [
     require('./app.less')
@@ -18,7 +20,7 @@ export class AppComponent implements OnInit {
 
   buttonOptions = {
     // ? d: ''
-    size: 'mini',
+    // size: 'mini',
     // ? d: false
     isPlain: true
   }
