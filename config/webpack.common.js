@@ -13,12 +13,6 @@ function webpackConfig() {
       main: './server/index.ts'
     },
 
-    output: {
-      path: 'dist',
-      filename: '[name].bundle.js',
-      sourceMapFilename: '[name].map'
-    },
-
     resolve: {
       // See: http://webpack.github.io/docs/configuration.html#resolve-extensions
       extensions: ['', '.ts', '.js'],
@@ -77,4 +71,4 @@ function webpackConfig() {
   return config
 }
 
-module.exports = webpackConfig
+module.exports = webpackConfig()
