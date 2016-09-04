@@ -8,9 +8,9 @@ module.exports = webpackMerge(commonConfig, {
   devtool: '#source-map',
   output: {
     path: 'dist',
-    publicPath: '//ocyuhuhtm.bkt.clouddn.com/',
+    publicPath: '//static-ngx.darlin.me/',
     filename: '[name].[hash].js',
-    sourceMapFilename: '[name].[hash].map',
+    sourceMapFilename: '[file].map',
     chunkFilename: '[id].[hash].js'
   },
   plugins: [

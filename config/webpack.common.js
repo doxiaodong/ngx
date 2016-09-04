@@ -5,8 +5,6 @@ const autoprefixer = require('autoprefixer')
 
 function webpackConfig() {
   const config = {
-    // devtool: '#eval-source-map',
-    devtool: '#source-map',
 
     entry: {
       lib: './server/lib.ts',
