@@ -9,6 +9,7 @@ import { XSwitchModule } from './switch'
 import { XGroupModule } from './group'
 import { XCellModule } from './cell'
 import { XBadgeModule } from './badge'
+import { XInputModule } from './input'
 
 const NGX_MODULES = [
   XButtonModule,
@@ -16,7 +17,8 @@ const NGX_MODULES = [
   XSwitchModule,
   XGroupModule,
   XCellModule,
-  XBadgeModule
+  XBadgeModule,
+  XInputModule
 ]
 
 @NgModule({
@@ -27,7 +29,8 @@ const NGX_MODULES = [
     XSwitchModule,
     XGroupModule,
     XCellModule,
-    XBadgeModule
+    XBadgeModule,
+    XInputModule
 
     // with providers
   ],

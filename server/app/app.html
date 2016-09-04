@@ -22,6 +22,14 @@
     <x-cell title="Cell">
       <x-badge>666</x-badge>
     </x-cell>
+    <x-input
+      [(ngModel)]="input.value"
+      showClear
+      title="Input"
+      subTitle="sub title"
+      placeholder="phone number"
+      type="number">
+    </x-input>
   </x-group>
   <x-group [title]="'Group with options, color: ' + groupOptions.color" [options]="groupOptions">
     <x-cell title="Cell">normal</x-cell>
@@ -31,4 +39,73 @@
       balabala ha
     </x-cell>
   </x-group>
+
+  <form
+    class="weui_cells_form"
+    #exForm="ngForm"
+    (ngSubmit)="form.submit()">
+    <x-group title="Form Group">
+      <x-switch
+        title="Remember?"
+        name="remember"
+        [(ngModel)]="form.remember"
+      ></x-switch>
+      <x-input
+        title="Name"
+        name="name"
+        [(ngModel)]="form.name"
+        #name="ngModel"
+        maxlength="6"
+        minlength="3"
+        placeholder="your name"
+        required
+        type="text">
+        <x-icon
+          hint
+          [hidden]="name.valid || name.pristine"
+          type="warn"></x-icon>
+      </x-input>
+      <x-input
+        title="Password"
+        name="password"
+        [(ngModel)]="form.password"
+        #password="ngModel"
+        maxlength="6"
+        minlength="3"
+        placeholder="your password"
+        required
+        type="password">
+        <x-icon
+          hint
+          [hidden]="password.valid || password.pristine"
+          type="warn"></x-icon>
+      </x-input>
+      <x-input
+        title="Vcode"
+        name="vcode"
+        [(ngModel)]="form.vcode"
+        #vcode="ngModel"
+        placeholder="right vcode"
+        required
+        vcode
+        type="text">
+        <div hint>
+          <x-icon
+          [hidden]="vcode.valid || vcode.pristine"
+          type="warn"></x-icon>
+          <img src="http://weui.github.io/weui/images/vcode.jpg" alt="">
+        </div>
+      </x-input>
+    </x-group>
+    <div style="margin: 10px 15px;">
+      <button
+        type="submit"
+        x-button
+        class="form-button"
+        color="primary"
+        [disabled]="!exForm.valid || exForm.pristine"
+      >Submit</button>
+    </div>
+  </form>
+
 </div>

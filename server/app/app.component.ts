@@ -56,10 +56,24 @@ export class AppComponent implements OnInit {
     }
   }
 
+  input = {
+    value: 123456
+  }
+
   switch = {
     value: false,
     OnChange(v) {
       console.log('switch change', v)
+    }
+  }
+
+  form = {
+    remember: false,
+    name: '',
+    password: '',
+    vcode: '',
+    submit() {
+      console.log(this.remember, this.name, this.password, this.vcode)
     }
   }
 

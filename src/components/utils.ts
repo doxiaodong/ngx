@@ -13,3 +13,5 @@ export function updateClass(
     _renderer.setElementClass(_elementRef.nativeElement, className, isAdd)
   }
 }
+
+export * from './annotations'

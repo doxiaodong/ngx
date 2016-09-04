@@ -1,0 +1,42 @@
+<div class="weui_cell_hd"
+  [class.weui_cell_warn]="!input.valid && !input.pristine">
+  <label class="weui_label" *ngIf="title" [attr.for]="inputId">{{ title }}</label>
+  <label class="weui_label" *ngIf="subTitle" [attr.for]="inputId">
+    <inline-desc>{{ subTitle }}</inline-desc>
+  </label>
+
+</div>
+<div class="weui_cell_bd weui_cell_primary"
+  [class.weui_cell_warn]="!input.valid && !input.pristine">
+  <input
+    #input="ngModel"
+    class="weui_input"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-labelledby]="ariaLabelledBy"
+    [attr.aria-disabled]="ariaDisabled"
+    [attr.aria-required]="ariaRequired"
+    [attr.aria-invalid]="ariaInvalid"
+    [attr.autocomplete]="autocomplete"
+    [attr.autocorrect]="autocorrect"
+    [attr.autocapitalize]="autocapitalize"
+    [autofocus]="autofocus"
+    [disabled]="disabled"
+    [max]="max"
+    [maxlength]="maxlength"
+    [min]="min"
+    [minlength]="minlength"
+    [placeholder]="placeholder"
+    [readonly]="readonly"
+    [required]="required"
+    [attr.tabindex]="tabindex"
+    [type]="type"
+    [id]="inputId"
+    [attr.name]="name"
+    [(ngModel)]="value"
+  />
+</div>
+<div class="weui_cell_ft"
+  [class.weui_cell_warn]="!input.valid && !input.pristine">
+  <x-icon type="clear" [hidden]="!showClear || !value || readonly" (click)="clear()"></x-icon>
+  <ng-content select="[hint]"></ng-content>
+</div>

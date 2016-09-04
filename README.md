@@ -9,3 +9,9 @@
 ## x-switch
 
 ## x-cell
+
+## x-icon
+
+## x-input
+
+## x-badge

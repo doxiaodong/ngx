@@ -1,10 +1,12 @@
 import {
   Component,
-  NgModule
+  NgModule,
+  ViewEncapsulation
 } from '@angular/core'
 
 @Component({
   selector: 'x-badge',
+  encapsulation: ViewEncapsulation.None,
   template: `
     <span class="ngx-badge">
       <ng-content></ng-content>
