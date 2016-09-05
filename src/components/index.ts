@@ -10,6 +10,7 @@ import { XGroupModule } from './group'
 import { XCellModule } from './cell'
 import { XBadgeModule } from './badge'
 import { XInputModule } from './input'
+import { XTextareaModule } from './textarea'
 
 const NGX_MODULES = [
   XButtonModule,
@@ -18,7 +19,8 @@ const NGX_MODULES = [
   XGroupModule,
   XCellModule,
   XBadgeModule,
-  XInputModule
+  XInputModule,
+  XTextareaModule
 ]
 
 @NgModule({
@@ -30,7 +32,8 @@ const NGX_MODULES = [
     XGroupModule,
     XCellModule,
     XBadgeModule,
-    XInputModule
+    XInputModule,
+    XTextareaModule
 
     // with providers
   ],

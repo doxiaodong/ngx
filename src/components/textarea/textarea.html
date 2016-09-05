@@ -1,0 +1,25 @@
+<div class="weui_cell_bd weui_cell_primary">
+  <textarea
+    class="weui_textarea"
+    #input="ngModel"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-labelledby]="ariaLabelledBy"
+    [attr.aria-disabled]="ariaDisabled"
+    [attr.aria-required]="ariaRequired"
+    [attr.aria-invalid]="ariaInvalid"
+    [attr.autocomplete]="autocomplete"
+    [attr.autocorrect]="autocorrect"
+    [attr.autocapitalize]="autocapitalize"
+    [autofocus]="autofocus"
+    [disabled]="disabled"
+    [maxlength]="maxlength"
+    [minlength]="minlength"
+    [placeholder]="placeholder"
+    [readonly]="readonly"
+    [required]="required"
+    [rows]="rows"
+    [cols]="cols"
+    [attr.tabindex]="tabindex"
+    [(ngModel)]="value"></textarea>
+  <div class="weui_textarea_counter" [hidden]="!showCounter || !maxlength"><span>{{ count }}</span>/{{ maxlength }}</div>
+</div>

@@ -60,6 +60,10 @@ export class AppComponent implements OnInit {
     value: 123456
   }
 
+  textarea = {
+    value: 'aabbccddee'
+  }
+
   switch = {
     value: false,
     OnChange(v) {

@@ -30,6 +30,10 @@
       placeholder="phone number"
       type="number">
     </x-input>
+    <x-textarea
+      [(ngModel)]="textarea.value"
+      maxlength="20"
+      ></x-textarea>
   </x-group>
   <x-group [title]="'Group with options, color: ' + groupOptions.color" [options]="groupOptions">
     <x-cell title="Cell">normal</x-cell>

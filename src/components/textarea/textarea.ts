@@ -14,37 +14,33 @@ import {
   ControlValueAccessor
 } from '@angular/forms'
 import { CommonModule } from '@angular/common'
-import { InlineDescModule } from '../inline-desc'
-import { XIconModule } from '../icon'
 import {
   updateClass,
   BooleanFieldValue
 } from '../utils'
 
-const INPUT_CONTROL_VALUE_ACCESSOR: any = {
+const TEXTAREA_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => XInput),
+  useExisting: forwardRef(() => XTextarea),
   multi: true
 }
 
-let nextUniqueId = 0
-
 @Component({
-  selector: 'x-input',
+  selector: 'x-textarea',
   encapsulation: ViewEncapsulation.None,
-  template: require('./input.html'),
+  template: require('./textarea.html'),
   styles: [
-    require('./input.less')
+    require('./textarea.less')
   ],
   providers: [
-    INPUT_CONTROL_VALUE_ACCESSOR
+    TEXTAREA_CONTROL_VALUE_ACCESSOR
   ]
-})
-export class XInput implements ControlValueAccessor, OnInit {
 
+})
+export class XTextarea implements ControlValueAccessor, OnInit {
   private onTouchedCallback: () => {}
   private onChangeCallback: (_: any) => {}
-  private _innerValue: string | number
+  private _innerValue: string
 
   @Input('aria-label') ariaLabel: string
   @Input('aria-labelledby') ariaLabelledBy: string
@@ -57,41 +53,37 @@ export class XInput implements ControlValueAccessor, OnInit {
   @Input() autocapitalize: string
   @Input() @BooleanFieldValue() autofocus: boolean = false
   @Input() @BooleanFieldValue() disabled: boolean = false
-  @Input() max: string | number = null
   @Input() maxlength: number = null
-  @Input() min: string | number = null
   @Input() minlength: number = null
   @Input() placeholder: string = ''
   @Input() @BooleanFieldValue() readonly: boolean = false
   @Input() @BooleanFieldValue() required: boolean = false
   @Input() tabindex: number = null
-  @Input() type: string = 'text' // text number password
-  @Input() name: string = null
+  @Input() rows: number = null
+  @Input() cols: number = null
 
   // add
-  @Input() title: string
-  @Input() subTitle: string
-  @Input() @BooleanFieldValue() showClear: boolean
-  @Input() @BooleanFieldValue() vcode: boolean
-  @Input() id: string = `x-input-${nextUniqueId++}`
+  @Input() @BooleanFieldValue() showCounter: boolean = true
 
-  get inputId(): string {
-    return `${this.id}-input`
-  }
+  count: number = 0
 
-  set value(v: string | number) {
+  set value(v: string) {
     if (v !== this._innerValue) {
+      this.count = v.length
       this._innerValue = v
       this.onChangeCallback(v)
     }
   }
 
-  get value(): string | number {
+  get value(): string {
     return this._innerValue
   }
 
-  writeValue(v: string | number) {
+  writeValue(v: string) {
     if (v !== this._innerValue) {
+      if (v) {
+        this.count = v.length
+      }
       this._innerValue = v
     }
   }
@@ -106,9 +98,6 @@ export class XInput implements ControlValueAccessor, OnInit {
 
   ngOnInit() {
     updateClass(this._renderer, this._elementRef, 'weui_cell', true)
-    if (this.vcode) {
-      updateClass(this._renderer, this._elementRef, 'weui_vcode', true)
-    }
   }
 
   constructor(
@@ -116,28 +105,20 @@ export class XInput implements ControlValueAccessor, OnInit {
     private _elementRef: ElementRef
   ) { }
 
-  clear() {
-    this.value = null
-  }
-
 }
 
 @NgModule({
   declarations: [
-    XInput
+    XTextarea
   ],
   imports: [
     FormsModule,
-    CommonModule,
-    InlineDescModule,
-    XIconModule
+    CommonModule
   ],
   exports: [
-    XInput,
+    XTextarea,
     FormsModule,
-    CommonModule,
-    InlineDescModule,
-    XIconModule
+    CommonModule
   ]
 })
-export class XInputModule { }
+export class XTextareaModule { }

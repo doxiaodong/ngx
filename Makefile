@@ -8,3 +8,6 @@ lint:
 
 build:
 	npm run build
+
+publish:
+	npm publish --registry http://registry.npmjs.org
