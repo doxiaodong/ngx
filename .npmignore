@@ -10,7 +10,9 @@ dist/
 
 upload.sh
 
-*.js
-!config/**/*.js
-*.d.ts
-*.js.map
+*.ts
+!*.d.ts
+config/
+scripts/
+server/
+Makefile

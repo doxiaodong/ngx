@@ -82,7 +82,7 @@ export class XActionsheet implements OnChanges {
 })
 export class XActionsheetModule { }
 
-interface IActionsheetMenu {
+export interface IActionsheetMenu {
   key: string
   value: string
 }

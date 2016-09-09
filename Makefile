@@ -10,4 +10,5 @@ build:
 	npm run build
 
 publish:
+	tsc
 	npm publish --registry http://registry.npmjs.org
