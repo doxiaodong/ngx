@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/doxiaodong/ngx"
   },
-  "version": "1.0.0-pre.4",
+  "version": "1.0.0-pre.6",
   "license": "MIT",
   "scripts": {
     "tslint": "tslint",
