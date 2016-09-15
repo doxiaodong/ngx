@@ -20,7 +20,7 @@ module.exports = webpackMerge(commonConfig, {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-
+      sourceMap: true,
       beautify: false,
 
       mangle: {
