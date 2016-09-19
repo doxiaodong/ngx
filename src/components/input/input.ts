@@ -18,7 +18,8 @@ import { InlineDescModule } from '../inline-desc'
 import { XIconModule } from '../icon'
 import {
   updateClass,
-  BooleanFieldValue
+  BooleanFieldValue,
+  NgModelBase
 } from '../utils'
 
 const INPUT_CONTROL_VALUE_ACCESSOR: any = {
@@ -40,11 +41,7 @@ let nextUniqueId = 0
     INPUT_CONTROL_VALUE_ACCESSOR
   ]
 })
-export class XInput implements ControlValueAccessor, OnInit {
-
-  private onTouchedCallback: () => {}
-  private onChangeCallback: (_: any) => {}
-  private _innerValue: string | number
+export class XInput extends NgModelBase implements ControlValueAccessor, OnInit {
 
   @Input('aria-label') ariaLabel: string
   @Input('aria-labelledby') ariaLabelledBy: string
@@ -79,31 +76,6 @@ export class XInput implements ControlValueAccessor, OnInit {
     return `${this.id}-input`
   }
 
-  set value(v: string | number) {
-    if (v !== this._innerValue) {
-      this._innerValue = v
-      this.onChangeCallback(v)
-    }
-  }
-
-  get value(): string | number {
-    return this._innerValue
-  }
-
-  writeValue(v: string | number) {
-    if (v !== this._innerValue) {
-      this._innerValue = v
-    }
-  }
-
-  registerOnChange(fn: any) {
-    this.onChangeCallback = fn
-  }
-
-  registerOnTouched(fn: any) {
-    this.onTouchedCallback = fn
-  }
-
   ngOnInit() {
     updateClass(this._renderer, this._elementRef, 'weui_cell', true)
     if (this.vcode) {
@@ -114,7 +86,9 @@ export class XInput implements ControlValueAccessor, OnInit {
   constructor(
     private _renderer: Renderer,
     private _elementRef: ElementRef
-  ) { }
+  ) {
+    super()
+  }
 
   clear() {
     this.value = null

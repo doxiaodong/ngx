@@ -16,7 +16,10 @@ import {
 import { DomSanitizer } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
 import { InlineDescModule } from '../inline-desc'
-import { updateClass } from '../utils'
+import {
+  updateClass,
+  NgModelBase
+} from '../utils'
 
 const SWITCH_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -38,12 +41,8 @@ const SWITCH_CONTROL_VALUE_ACCESSOR: any = {
     SWITCH_CONTROL_VALUE_ACCESSOR
   ]
 })
-export class XSwitch implements ControlValueAccessor, OnInit {
-  private onTouchedCallback: () => {}
-  private onChangeCallback: (_: any) => {}
-
+export class XSwitch extends NgModelBase implements ControlValueAccessor, OnInit {
   private _title: string = ''
-  private _innerValue: boolean = false
   labelStyle: any = {}
   @Input() subTitle: string = ''
 
@@ -56,31 +55,6 @@ export class XSwitch implements ControlValueAccessor, OnInit {
     return html
   }
 
-  set value(v: boolean) {
-    if (v !== this._innerValue) {
-      this._innerValue = v
-      this.onChangeCallback(v)
-    }
-  }
-
-  get value(): boolean {
-    return this._innerValue
-  }
-
-  writeValue(v: boolean) {
-    if (v !== this._innerValue) {
-      this._innerValue = v
-    }
-  }
-
-  registerOnChange(fn: any) {
-    this.onChangeCallback = fn
-  }
-
-  registerOnTouched(fn: any) {
-    this.onTouchedCallback = fn
-  }
-
   ngOnInit() {
     updateClass(this._renderer, this._elementRef, 'weui_cell', true)
     updateClass(this._renderer, this._elementRef, 'weui_cell_switch', true)
@@ -90,7 +64,9 @@ export class XSwitch implements ControlValueAccessor, OnInit {
     private _sanitizer: DomSanitizer,
     private _renderer: Renderer,
     private _elementRef: ElementRef
-  ) { }
+  ) {
+    super()
+  }
 
 }
 
