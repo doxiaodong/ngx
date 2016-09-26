@@ -6,31 +6,31 @@ import {
 } from '@angular/core'
 import { assign } from '../utils'
 
-const XScroll = require('xscroll/build/cmd/xscroll.js')
-const Pulldown = require('xscroll/build/cmd/plugins/pulldown.js')
-const Pullup = require('xscroll/build/cmd/plugins/pullup.js')
+// const XScroll = require('xscroll/build/cmd/xscroll.js')
+// const Pulldown = require('xscroll/build/cmd/plugins/pulldown.js')
+// const Pullup = require('xscroll/build/cmd/plugins/pullup.js')
 
 let nextUniqueId = 0
 
-const pulldownDefaultConfig: IPulldownConfig = {
-  content: 'Pull Down To Refresh',
-  height: 60,
-  autoRefresh: false,
-  downContent: 'Pull Down To Refresh',
-  upContent: 'Release To Refresh',
-  loadingContent: 'Loading...',
-  clsPrefix: 'xs-plugin-pulldown-'
-}
-const pullupDefaultConfig: IPullupConfig = {
-  content: 'Pull Up To Refresh',
-  pullUpHeight: 60,
-  height: 40,
-  autoRefresh: false,
-  downContent: 'Release To Refresh',
-  upContent: 'Pull Up To Refresh',
-  loadingContent: 'Loading...',
-  clsPrefix: 'xs-plugin-pullup-'
-}
+// const pulldownDefaultConfig: IPulldownConfig = {
+//   content: 'Pull Down To Refresh',
+//   height: 60,
+//   autoRefresh: false,
+//   downContent: 'Pull Down To Refresh',
+//   upContent: 'Release To Refresh',
+//   loadingContent: 'Loading...',
+//   clsPrefix: 'xs-plugin-pulldown-'
+// }
+// const pullupDefaultConfig: IPullupConfig = {
+//   content: 'Pull Up To Refresh',
+//   pullUpHeight: 60,
+//   height: 40,
+//   autoRefresh: false,
+//   downContent: 'Release To Refresh',
+//   upContent: 'Pull Up To Refresh',
+//   loadingContent: 'Loading...',
+//   clsPrefix: 'xs-plugin-pullup-'
+// }
 
 @Component({
   selector: 'x-scroller',
@@ -57,7 +57,7 @@ export class XScroller implements OnInit {
   private _options: IScrollerOptions = {
 
   }
-  private _xscroll: any
+  // private _xscroll: any
   id: string = `ngx-scroller-${nextUniqueId++}`
 
   set options(value: IScrollerOptions) {
