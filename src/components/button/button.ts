@@ -39,7 +39,7 @@ export class XButton implements OnInit, DoCheck {
         oldPlain ? `weui_btn_plain_${this.color}` : '', false)
       this._options.isPlain = newPlain
       updateClass(this._renderer, this._elementRef,
-        newPlain ? `weui_btn_plain_${this.color}` : '', true )
+        newPlain ? `weui_btn_plain_${this.color}` : '', true)
     }
 
     const oldSize = this._options.size
@@ -58,7 +58,7 @@ export class XButton implements OnInit, DoCheck {
   constructor(
     private _elementRef: ElementRef,
     private _renderer: Renderer
-  ) {}
+  ) { }
 
   set color(value: string) {
     updateClass(this._renderer, this._elementRef, `weui_btn_${this._color}`, false)

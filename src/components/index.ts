@@ -11,6 +11,7 @@ import { XCellModule } from './cell'
 import { XBadgeModule } from './badge'
 import { XInputModule } from './input'
 import { XTextareaModule } from './textarea'
+import { XScrollerModule } from './scroller'
 
 const NGX_MODULES = [
   XButtonModule,
@@ -20,7 +21,8 @@ const NGX_MODULES = [
   XCellModule,
   XBadgeModule,
   XInputModule,
-  XTextareaModule
+  XTextareaModule,
+  XScrollerModule
 ]
 
 @NgModule({
@@ -33,13 +35,14 @@ const NGX_MODULES = [
     XCellModule,
     XBadgeModule,
     XInputModule,
-    XTextareaModule
+    XTextareaModule,
+    XScrollerModule
 
     // with providers
   ],
   exports: NGX_MODULES
 })
-export class NGXRootModule {}
+export class NGXRootModule { }
 
 @NgModule({
   imports: NGX_MODULES,

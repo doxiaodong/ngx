@@ -28,6 +28,7 @@
     "core-js": "^2.4.1",
     "rxjs": "^5.0.0-beta.12",
     "weui": "^0.4.3",
+    "xscroll": "^3.1.2",
     "zone.js": "^0.6.21"
   },
   "devDependencies": {
@@ -44,7 +45,8 @@
     "postcss-loader": "^0.13.0",
     "raw-loader": "^0.5.1",
     "tslint": "^3.15.1",
-    "typescript": "^2.0.0-rc",
+    "typescript": "^2.0.3",
+    "typescript-formatter": "^3.0.1",
     "webpack": "^2.1.0-beta.21",
     "webpack-dev-server": "^2.1.0-beta.0",
     "webpack-merge": "^0.14.1"
