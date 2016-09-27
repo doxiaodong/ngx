@@ -1,7 +1,7 @@
-<div class="weui_cell_hd weui_cell_primary">
-  <label class="weui_label" [ngStyle]="labelStyle" [innerHTML]="title"></label>
+<div class="weui-cell__bd weui-cell_primary">
+  <label class="weui-label" [ngStyle]="labelStyle" [innerHTML]="title"></label>
   <inline-desc *ngIf="subTitle">{{ subTitle }}</inline-desc>
 </div>
-<div class="weui_cell_ft">
-  <input class="weui_switch" type="checkbox" [disabled]="disabled" [(ngModel)]="value">
+<div class="weui-cell__ft">
+  <input class="weui-switch" type="checkbox" [disabled]="disabled" [(ngModel)]="value">
 </div>

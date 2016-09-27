@@ -56,8 +56,8 @@ export class XSwitch extends NgModelBase implements ControlValueAccessor, OnInit
   }
 
   ngOnInit() {
-    updateClass(this._renderer, this._elementRef, 'weui_cell', true)
-    updateClass(this._renderer, this._elementRef, 'weui_cell_switch', true)
+    updateClass(this._renderer, this._elementRef, 'weui-cell', true)
+    updateClass(this._renderer, this._elementRef, 'weui-cell_switch', true)
   }
 
   constructor(

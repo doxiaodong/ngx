@@ -1,2 +1,12 @@
-@import '~weui/src/style/widget/weui_tips/weui_mask.less';
-@import '~weui/src/style/widget/weui_tips/weui_actionsheet.less';
+@import '~weui/src/style/widget/weui-tips/weui-mask';
+@import '~weui/src/style/widget/weui-tips/weui-actionsheet';
+
+.actionsheet__mask_show {
+  background: rgba(0, 0, 0, .6);
+}
+
+.actionsheet__mask {
+  display: none;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+}

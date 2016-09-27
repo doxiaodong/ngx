@@ -69,7 +69,7 @@ export class XInput extends NgModelBase implements ControlValueAccessor, OnInit 
   @Input() title: string
   @Input() subTitle: string
   @Input() @BooleanFieldValue() showClear: boolean
-  @Input() @BooleanFieldValue() vcode: boolean
+  @Input() vcode: string
   @Input() id: string = `x-input-${nextUniqueId++}`
 
   get inputId(): string {
@@ -77,9 +77,9 @@ export class XInput extends NgModelBase implements ControlValueAccessor, OnInit 
   }
 
   ngOnInit() {
-    updateClass(this._renderer, this._elementRef, 'weui_cell', true)
+    updateClass(this._renderer, this._elementRef, 'weui-cell', true)
     if (this.vcode) {
-      updateClass(this._renderer, this._elementRef, 'weui_vcode', true)
+      updateClass(this._renderer, this._elementRef, 'weui-cell_vcode', true)
     }
   }
 

@@ -86,7 +86,7 @@ export class XTextarea extends NgModelBase implements ControlValueAccessor, OnIn
   }
 
   ngOnInit() {
-    updateClass(this._renderer, this._elementRef, 'weui_cell', true)
+    updateClass(this._renderer, this._elementRef, 'weui-cell', true)
   }
 
   constructor(

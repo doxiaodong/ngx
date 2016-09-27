@@ -1,6 +1,6 @@
-<div class="weui_cell_bd weui_cell_primary">
+<div class="weui-cell__bd weui-cell_primary">
   <textarea
-    class="weui_textarea"
+    class="weui-textarea"
     #input="ngModel"
     [attr.aria-label]="ariaLabel"
     [attr.aria-labelledby]="ariaLabelledBy"
@@ -21,5 +21,5 @@
     [cols]="cols"
     [attr.tabindex]="tabindex"
     [(ngModel)]="value"></textarea>
-  <div class="weui_textarea_counter" [hidden]="!showCounter || !maxlength"><span>{{ count }}</span>/{{ maxlength }}</div>
+  <div class="weui-textarea-counter" [hidden]="!showCounter || !maxlength"><span>{{ count }}</span>/{{ maxlength }}</div>
 </div>

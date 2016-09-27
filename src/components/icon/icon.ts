@@ -23,7 +23,7 @@ export class XIcon {
   className: string = ''
 
   set type(value: string) {
-    this.className = `weui_icon weui_icon_${value}`
+    this.className = `weui-icon-${value}`
     this._type = value
   }
 
