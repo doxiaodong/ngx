@@ -26,7 +26,7 @@ export class XCell implements OnInit {
   @Input() primary: string = 'title' // title|content
 
   ngOnInit() {
-    updateClass(this._renderer, this._elementRef, 'weui_cell', true)
+    updateClass(this._renderer, this._elementRef, 'weui-cell', true)
   }
 
   constructor(

@@ -15,6 +15,7 @@ export function updateClass(
 }
 
 export * from './annotations'
+export * from './polyfill'
 
 export class NgModelBase {
   public onTouchedCallback: () => {}

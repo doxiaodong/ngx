@@ -10,12 +10,12 @@ import { CommonModule } from '@angular/common'
   selector: 'x-group',
   encapsulation: ViewEncapsulation.None,
   template: `
-    <div class="weui_cells_title"
+    <div class="weui-cells__title"
       *ngIf="title"
       [style.color]="options.color"
       [innerHTML]="title"></div>
-    <div class="weui_cells"
-      [class.weui_cells_access]="options.isAccess">
+    <div class="weui-cells"
+      [class.weui-cells_access]="options.isAccess">
       <ng-content></ng-content>
     </div>
   `,

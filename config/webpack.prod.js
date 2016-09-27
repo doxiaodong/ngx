@@ -1,3 +1,4 @@
+const path = require('path')
 const commonConfig = require('./webpack.common.js')
 const webpackMerge = require('webpack-merge')
 const webpack = require('webpack')
@@ -7,7 +8,7 @@ const ENV = 'prod'
 module.exports = webpackMerge(commonConfig, {
   devtool: '#source-map',
   output: {
-    path: 'docs',
+    path: path.resolve(__dirname, '../docs'),
     publicPath: '//static-ngx.darlin.me/',
     filename: '[name].[hash].js',
     sourceMapFilename: '[file].map',

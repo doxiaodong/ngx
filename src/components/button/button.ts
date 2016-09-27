@@ -36,34 +36,34 @@ export class XButton implements OnInit, DoCheck {
     const newPlain = this.options.isPlain
     if (oldPlain !== newPlain) {
       updateClass(this._renderer, this._elementRef,
-        oldPlain ? `weui_btn_plain_${this.color}` : '', false)
+        oldPlain ? `weui-btn_plain-${this.color}` : '', false)
       this._options.isPlain = newPlain
       updateClass(this._renderer, this._elementRef,
-        newPlain ? `weui_btn_plain_${this.color}` : '', true )
+        newPlain ? `weui-btn_plain-${this.color}` : '', true)
     }
 
     const oldSize = this._options.size
     const newSize = this.options.size
     if (oldSize !== newSize) {
-      updateClass(this._renderer, this._elementRef, `weui_btn_${oldSize}`, false)
+      updateClass(this._renderer, this._elementRef, `weui-btn_${oldSize}`, false)
       this._options.size = newSize
-      updateClass(this._renderer, this._elementRef, `weui_btn_${newSize}`, true)
+      updateClass(this._renderer, this._elementRef, `weui-btn_${newSize}`, true)
     }
   }
 
   ngOnInit() {
-    updateClass(this._renderer, this._elementRef, 'weui_btn', true)
+    updateClass(this._renderer, this._elementRef, 'weui-btn', true)
   }
 
   constructor(
     private _elementRef: ElementRef,
     private _renderer: Renderer
-  ) {}
+  ) { }
 
   set color(value: string) {
-    updateClass(this._renderer, this._elementRef, `weui_btn_${this._color}`, false)
+    updateClass(this._renderer, this._elementRef, `weui-btn_${this._color}`, false)
     this._color = value
-    updateClass(this._renderer, this._elementRef, `weui_btn_${this._color}`, true)
+    updateClass(this._renderer, this._elementRef, `weui-btn_${this._color}`, true)
   }
 
   get color() {
@@ -71,9 +71,9 @@ export class XButton implements OnInit, DoCheck {
   }
 
   set disabled(value: boolean) {
-    updateClass(this._renderer, this._elementRef, this._disabled ? 'weui_btn_disabled' : '', false)
+    updateClass(this._renderer, this._elementRef, this._disabled ? 'weui-btn_disabled' : '', false)
     this._disabled = value
-    updateClass(this._renderer, this._elementRef, this._disabled ? 'weui_btn_disabled' : '', true)
+    updateClass(this._renderer, this._elementRef, this._disabled ? 'weui-btn_disabled' : '', true)
   }
 
   get disabled() {

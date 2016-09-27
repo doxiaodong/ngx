@@ -16,7 +16,8 @@ import {
 import { CommonModule } from '@angular/common'
 import {
   updateClass,
-  BooleanFieldValue
+  BooleanFieldValue,
+  NgModelBase
 } from '../utils'
 
 const TEXTAREA_CONTROL_VALUE_ACCESSOR: any = {
@@ -37,11 +38,7 @@ const TEXTAREA_CONTROL_VALUE_ACCESSOR: any = {
   ]
 
 })
-export class XTextarea implements ControlValueAccessor, OnInit {
-  private onTouchedCallback: () => {}
-  private onChangeCallback: (_: any) => {}
-  private _innerValue: string
-
+export class XTextarea extends NgModelBase implements ControlValueAccessor, OnInit {
   @Input('aria-label') ariaLabel: string
   @Input('aria-labelledby') ariaLabelledBy: string
   @Input('aria-disabled') @BooleanFieldValue() ariaDisabled: boolean
@@ -88,22 +85,16 @@ export class XTextarea implements ControlValueAccessor, OnInit {
     }
   }
 
-  registerOnChange(fn: any) {
-    this.onChangeCallback = fn
-  }
-
-  registerOnTouched(fn: any) {
-    this.onTouchedCallback = fn
-  }
-
   ngOnInit() {
-    updateClass(this._renderer, this._elementRef, 'weui_cell', true)
+    updateClass(this._renderer, this._elementRef, 'weui-cell', true)
   }
 
   constructor(
     private _renderer: Renderer,
     private _elementRef: ElementRef
-  ) { }
+  ) {
+    super()
+  }
 
 }
 

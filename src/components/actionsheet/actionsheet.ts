@@ -24,8 +24,8 @@ export class XActionsheet implements OnChanges {
   private _options: IActionsheetOptions = {
     show: false,
     menus: [],
-    onSelect: (key: string) => {},
-    onCancel: () => {},
+    onSelect: (key: string) => { },
+    onCancel: () => { },
     cancelText: 'Cancel'
   }
 
