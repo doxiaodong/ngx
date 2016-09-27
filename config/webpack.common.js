@@ -13,12 +13,7 @@ function webpackConfig() {
 
     resolve: {
       // See: http://webpack.github.io/docs/configuration.html#resolve-extensions
-      extensions: ['', '.ts', '.js'],
-
-      root: path.resolve(__dirname, 'src'),
-
-      // remove other default values
-      modulesDirectories: ['node_modules']
+      extensions: ['.ts', '.js']
 
     },
 
@@ -35,13 +30,16 @@ function webpackConfig() {
       ]
     },
 
-    postcss: [
-      autoprefixer({
-        browsers: ['last 1 version', '> 10%']
-      })
-    ],
-
     plugins: [
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          postcss: [
+            autoprefixer({
+              browsers: ['last 1 version', '> 10%']
+            })
+          ]
+        }
+      }),
       new HtmlWebpackPlugin({
         template: 'server/index.html',
         minify: {
