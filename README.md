@@ -1,7 +1,7 @@
 # Mobile web UI based on Angular and Weui
 
 # Demo
-  [http://ngx.darlin.me](http://ngx.darlin.me)
+  [https://ngx.tristana.cc](https://ngx.tristana.cc)
 
 # Usage
 
@@ -9,7 +9,7 @@
 `npm i ngx-src --save`
 * use (x-input)
 ```typescript
-import { NgModule } from '@angular/core
+import { NgModule } from '@angular/core'
 import { XInputModule } from 'ngx-src/src/components/input'
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ export class AppModule { }
 ```
 * For shared NgModule
 ```typescript
-import { NgModule } from '@angular/core
+import { NgModule } from '@angular/core'
 import { XInputModule } from 'ngx-src/src/components/input'
 @NgModule({
   imports: [
@@ -37,7 +37,7 @@ export class SharedModule { }
 
 * if you need all
 ```typescript
-import { NgModule } from '@angular/core
+import { NgModule } from '@angular/core'
 import { NGXModule } from 'ngx-src'
 @NgModule({
   imports: [
