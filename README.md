@@ -1,7 +1,7 @@
 # Mobile web UI based on Angular and Weui
 
 # Demo
-  [https://ngx.tristana.cc](https://ngx.tristana.cc)
+  [https://ngx.gnar.top](https://ngx.gnar.top)
 
 # Usage
 
